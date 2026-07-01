@@ -366,6 +366,7 @@ tr.tr-foot td:first-child{text-align:left;color:var(--cream)}
     <div class="tbl-wrap">
       <table>
         <thead><tr>
+          <th style="width:32px;text-align:center;cursor:default">#</th>
           <th class="th-l" onclick="sortTab('jan','attorney')">Attorney <span class="arr" id="arr-jan-attorney">↕</span></th>
           <th onclick="sortTab('jan','ch7')">Ch. 7 <span class="arr" id="arr-jan-ch7">↕</span></th>
           <th onclick="sortTab('jan','ch13')">Ch. 13 <span class="arr" id="arr-jan-ch13">↕</span></th>
@@ -391,6 +392,7 @@ tr.tr-foot td:first-child{text-align:left;color:var(--cream)}
     <div class="tbl-wrap">
       <table>
         <thead><tr>
+          <th style="width:32px;text-align:center;cursor:default">#</th>
           <th class="th-l" onclick="sortTab('feb','attorney')">Attorney <span class="arr" id="arr-feb-attorney">↕</span></th>
           <th onclick="sortTab('feb','ch7')">Ch. 7 <span class="arr" id="arr-feb-ch7">↕</span></th>
           <th onclick="sortTab('feb','ch13')">Ch. 13 <span class="arr" id="arr-feb-ch13">↕</span></th>
@@ -416,6 +418,7 @@ tr.tr-foot td:first-child{text-align:left;color:var(--cream)}
     <div class="tbl-wrap">
       <table>
         <thead><tr>
+          <th style="width:32px;text-align:center;cursor:default">#</th>
           <th class="th-l" onclick="sortTab('mar','attorney')">Attorney <span class="arr" id="arr-mar-attorney">↕</span></th>
           <th onclick="sortTab('mar','ch7')">Ch. 7 <span class="arr" id="arr-mar-ch7">↕</span></th>
           <th onclick="sortTab('mar','ch13')">Ch. 13 <span class="arr" id="arr-mar-ch13">↕</span></th>
@@ -441,6 +444,7 @@ tr.tr-foot td:first-child{text-align:left;color:var(--cream)}
     <div class="tbl-wrap">
       <table>
         <thead><tr>
+          <th style="width:32px;text-align:center;cursor:default">#</th>
           <th class="th-l" onclick="sortTab('apr','attorney')">Attorney <span class="arr" id="arr-apr-attorney">↕</span></th>
           <th onclick="sortTab('apr','ch7')">Ch. 7 <span class="arr" id="arr-apr-ch7">↕</span></th>
           <th onclick="sortTab('apr','ch13')">Ch. 13 <span class="arr" id="arr-apr-ch13">↕</span></th>
@@ -466,6 +470,7 @@ tr.tr-foot td:first-child{text-align:left;color:var(--cream)}
     <div class="tbl-wrap">
       <table>
         <thead><tr>
+          <th style="width:32px;text-align:center;cursor:default">#</th>
           <th class="th-l" onclick="sortTab('may','attorney')">Attorney <span class="arr" id="arr-may-attorney">↕</span></th>
           <th onclick="sortTab('may','ch7')">Ch. 7 <span class="arr" id="arr-may-ch7">↕</span></th>
           <th onclick="sortTab('may','ch13')">Ch. 13 <span class="arr" id="arr-may-ch13">↕</span></th>
@@ -491,6 +496,7 @@ tr.tr-foot td:first-child{text-align:left;color:var(--cream)}
     <div class="tbl-wrap">
       <table>
         <thead><tr>
+          <th style="width:32px;text-align:center;cursor:default">#</th>
           <th class="th-l" onclick="sortTab('jun','attorney')">Attorney <span class="arr" id="arr-jun-attorney">↕</span></th>
           <th onclick="sortTab('jun','ch7')">Ch. 7 <span class="arr" id="arr-jun-ch7">↕</span></th>
           <th onclick="sortTab('jun','ch13')">Ch. 13 <span class="arr" id="arr-jun-ch13">↕</span></th>
@@ -516,6 +522,7 @@ tr.tr-foot td:first-child{text-align:left;color:var(--cream)}
     <div class="tbl-wrap">
       <table>
         <thead><tr>
+          <th style="width:32px;text-align:center;cursor:default">#</th>
           <th class="th-l" onclick="sortTab('ytd','attorney')">Attorney <span class="arr" id="arr-ytd-attorney">↕</span></th>
           <th onclick="sortTab('ytd','ch7')">Ch. 7 <span class="arr" id="arr-ytd-ch7">↕</span></th>
           <th onclick="sortTab('ytd','ch13')">Ch. 13 <span class="arr" id="arr-ytd-ch13">↕</span></th>
@@ -661,7 +668,8 @@ function renderTab(t) {
 
   const colLabel = t === 'ytd' ? 'YTD TOTALS' : 'TOTALS';
   document.getElementById('body-' + t).innerHTML =
-    rows.map(r => `<tr>
+    rows.map((r, i) => `<tr>
+      <td style="text-align:center;font-size:11px;font-weight:700;color:var(--green-sage);width:32px">${i + 1}</td>
       <td class="td-l">${r.attorney}</td>
       <td class="${r.ch7  ? '' : 'td-zero'}">${r.ch7  || '—'}</td>
       <td class="${r.ch13 ? '' : 'td-zero'}">${r.ch13 || '—'}</td>
@@ -671,6 +679,7 @@ function renderTab(t) {
       <td class="td-tot">${r.total}</td>
     </tr>`).join('') +
     `<tr class="tr-foot">
+      <td></td>
       <td>${colLabel} — ${rows.length} attorneys</td>
       <td>${tot.ch7}</td><td>${tot.ch13}</td><td>${tot.ch11}</td><td>${tot.ch12}</td><td>${tot.ap}</td><td>${tot.total}</td>
     </tr>`;
